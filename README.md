@@ -2,7 +2,8 @@
 
 ## Team
 
-- [Ivan Constantin Raul] (https://github.com/constantinraulivan)
+- [Ivan Constantin Raul](https://github.com/constantinraulivan)
+- [Giurgiu Bianca](https://github.com/biancagrg)
 
 ## Live
 
