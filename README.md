@@ -7,4 +7,4 @@
 
 ## Live
 
-[constantinraulivan.github.io](https://github.com/constantinraulivan/to-do-list)
+[To Do List](https://constantinraulivan.github.io/to-do-list/)
