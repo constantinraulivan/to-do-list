@@ -1,3 +1,11 @@
-body {width: 100;
-  background-color: rgb(38, 122, 196);
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:ital@1&family=Sora:wght@300&display=swap");
+
+* {
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-family: "Sora", sans-serif;
 }
