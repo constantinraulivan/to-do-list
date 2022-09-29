@@ -9,6 +9,17 @@
   font-family: "Roboto", sans-serif;
   font-family: "Sora", sans-serif;
 }
-header, footer,  #content {
-  border: 2px solid black
+header, footer {text-align: center;
+  
 }
+#content {border: 2px solid black;
+  
+  display: flex;
+  flex-direction: column;
+
+}
+#top-section{display: inline-block;
+  border: 1px solid green
+  
+}
+#main-section{border: 1px solid green}
