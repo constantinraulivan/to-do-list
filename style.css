@@ -12,14 +12,25 @@
 header, footer {text-align: center;
   
 }
-#content {border: 2px solid black;
-  
+section {border: 2px solid black;
+  flex: 1;
   display: flex;
   flex-direction: column;
 
 }
-#top-section{display: inline-block;
-  border: 1px solid green
+#top-section{
+  border: 1px solid black
   
 }
-#main-section{border: 1px solid green}
+#main-section{border: 1px solid black}
+.added-content{
+display: flex;
+flex-direction: row;
+}
+#botton-section{
+  border: 1px solid black;
+}
+.completed-content{
+  display: flex;
+    flex-direction: row;
+}
