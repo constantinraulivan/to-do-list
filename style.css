@@ -9,32 +9,8 @@
   font-family: "Roboto", sans-serif;
   font-family: "Sora", sans-serif;
 }
-header,
-footer {
+h1 {
   text-align: center;
-}
-section {
-  border: 2px solid black;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-#top-section {
-  border: 1px solid black;
-}
-#main-section {
-  border: 1px solid black;
-}
-.added-content {
-  display: flex;
-  flex-direction: row;
-}
-#botton-section {
-  border: 1px solid black;
-}
-.completed-content {
-  display: flex;
-  flex-direction: row;
 }
 button {
   display: inline-block;
@@ -137,3 +113,52 @@ button:hover span:after {
   opacity: 1;
   right: 0;
 }
+
+#container{
+  display: flex;
+  flex-direction: column;
+}
+
+#add-section{ 
+margin: 5px;
+padding: 5px;
+display: flex;
+flex-direction: row;
+flex: 1;
+
+
+}
+.added-content{
+  display: flex;
+  flex-direction: row;
+  flex: 3;
+  margin: 5px;
+  padding: 10px;
+}
+.completed-content{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin: 5px;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
