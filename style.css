@@ -42,8 +42,10 @@ button span:after {
   top: 0;
   right: -20px;
   transition: 0.5s;
+  background-color: black;
 }
 button:hover span {
+  background-color: black;
   padding-right: 12px;
 }
 
@@ -104,62 +106,41 @@ button:hover span:after {
   top: 0;
   right: -20px;
   transition: 0.5s;
+  background-color: black;
 }
 
-.deletebtn :hover span {
+.deletebtn:hover span {
   padding-right: 25px;
+  background-color: black;
 }
 
-.deletebtn :hover span:after {
+.deletebtn:hover span:after {
   opacity: 1;
   right: 0;
 }
-
-#container{
+#container {
   display: flex;
   flex-direction: column;
 }
 
-#add-section{ 
-margin: 5px;
-padding: 5px;
-display: flex;
-flex-direction: row;
-flex: 1;
-
-
+#add-section {
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
-.added-content{
+.added-content {
   display: flex;
   flex-direction: row;
   flex: 3;
   margin: 5px;
   padding: 10px;
 }
-.completed-content{
+.completed-content {
   display: flex;
   flex-direction: row;
   flex: 1;
   margin: 5px;
   padding: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
