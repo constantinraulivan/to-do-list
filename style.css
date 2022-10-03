@@ -67,9 +67,8 @@ button span:after {
   right: -20px;
   transition: 0.5s;
 }
-
 button:hover span {
-  padding-right: 25px;
+  padding-right: 12px;
 }
 
 button:hover span:after {
@@ -97,10 +96,12 @@ button:hover span:after {
   top: 0;
   right: -20px;
   transition: 0.5s;
+  background-color: black;
 }
 
 .editbtn:hover span {
   padding-right: 25px;
+  background-color: black;
 }
 
 .editbtn:hover span:after {
