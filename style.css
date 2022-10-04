@@ -9,6 +9,10 @@
   font-family: "Sora", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1 {
   text-align: center;
 }
@@ -215,6 +219,41 @@ button:hover span:after {
 .test {
   background-color: black;
   height: 10px;
+}
+
+.back {
+  background-color: #03cc65;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  height: 70px;
+  width: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0, 0.2);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#back-value {
+  display: block;
+  height: calc(100% - 15px);
+  width: calc(100% - 15px);
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  color: #001a2e;
+}
+
+.back.active {
+  bottom: 40px;
+  visibility: visible;
+  opacity: 100%;
 }
 
 @media (max-width: 700px) {

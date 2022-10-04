@@ -1,6 +1,7 @@
 let allTasks = [];
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
+const backBtn = document.querySelector(".back");
 
 function loadTask() {
   fetch("http://localhost:3000/tasks-json")
@@ -22,5 +23,19 @@ document.querySelectorAll(".nav-links").forEach((links) =>
     navLinks.classList.toggle("active");
   })
 );
+
+window.addEventListener("scroll", () => {
+  const scroll = document.querySelector(".back");
+  scroll.classList.toggle("active", window.scrollY > 200);
+});
+
+backBtn.addEventListener("click", backToTop);
+
+function backToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
 
 loadTask();
