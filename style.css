@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:ital@1&family=Sora:wght@300&display=swap");
 
 * {
-  background-color: #ffffff;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -9,9 +8,77 @@
   font-family: "Roboto", sans-serif;
   font-family: "Sora", sans-serif;
 }
+
 h1 {
   text-align: center;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+}
+
+.logo {
+  font-size: 30px;
+  margin: 10px;
+}
+
+.nav-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+}
+
+.nav-links ul li {
+  padding: 10px;
+}
+
+.nav-links ul li:hover {
+  background-color: #555;
+}
+
+.nav-links ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+}
+
+.hamburger {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 19px;
+}
+
+.hamburger .bar {
+  height: 3px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background-color: rgb(255, 255, 255);
+}
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background-color: rgb(255, 255, 255);
+}
+
 button {
   display: inline-block;
   background-color: #ffffff;
@@ -143,4 +210,44 @@ button:hover span:after {
   flex: 1;
   margin: 5px;
   padding: 10px;
+}
+
+.test {
+  background-color: black;
+  height: 10px;
+}
+
+@media (max-width: 700px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    margin-left: 50px;
+  }
+
+  .nav-links ul li {
+    text-align: center;
+  }
+  .nav-links.active {
+    display: flex;
+  }
 }
