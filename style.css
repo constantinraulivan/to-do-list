@@ -7,15 +7,17 @@
   font-family: "Lato", sans-serif;
   font-family: "Roboto", sans-serif;
   font-family: "Sora", sans-serif;
+   /* width: 100%; */
 }
 
-html {
+html { background-color: #ffffff;
   scroll-behavior: smooth;
 }
 
 h1 {
   text-align: center;
 }
+
 
 .navbar {
   display: flex;
@@ -124,7 +126,14 @@ button:hover span:after {
   opacity: 1;
   right: 0;
 }
+#add-input{
+  width: auto;
+}
 
+#addbtn { width: auto;
+  font-size: 10px;
+  
+}
 .editbtn {
 }
 .editbtn:hover {
@@ -157,7 +166,7 @@ button:hover span:after {
   opacity: 1;
   right: 0;
 }
-.deletebtn {
+.deletebtn { width: auto;
 }
 .deletebtn:hover {
   background-color: black;
@@ -195,30 +204,42 @@ button:hover span:after {
 }
 
 #add-section {
+  justify-content: space-between;
+  align-items: center;
   margin: 5px;
   padding: 5px;
   display: flex;
   flex-direction: row;
   flex: 1;
+  
+}
+.check-box{display: flex;
+align-items: baseline;
+
+
 }
 .added-content {
-  display: flex;
-  flex-direction: row;
-  flex: 3;
-  margin: 5px;
-  padding: 10px;
+  justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
 }
 .completed-content {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-  margin: 5px;
-  padding: 10px;
+  justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
 }
 
 .test {
   background-color: black;
-  height: 10px;
+  height: 5px;
 }
 
 .back {
