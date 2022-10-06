@@ -7,17 +7,17 @@
   font-family: "Lato", sans-serif;
   font-family: "Roboto", sans-serif;
   font-family: "Sora", sans-serif;
-   /* width: 100%; */
+  /* width: 100%; */
 }
 
-html { background-color: #ffffff;
+html {
+  background-color: #ffffff;
   scroll-behavior: smooth;
 }
 
 h1 {
   text-align: center;
 }
-
 
 .navbar {
   display: flex;
@@ -101,38 +101,14 @@ button:hover {
   background-color: black;
   color: #ffffff;
 }
-button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
 
-button span:after {
-  content: "\002B";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-  background-color: black;
-}
-button:hover span {
-  background-color: black;
-  padding-right: 12px;
-}
-
-button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-#add-input{
+#add-input {
   width: auto;
 }
 
-#addbtn { width: auto;
+#addbtn {
+  width: auto;
   font-size: 10px;
-  
 }
 .editbtn {
 }
@@ -140,64 +116,15 @@ button:hover span:after {
   background-color: black;
   color: #ffffff;
 }
-.editbtn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
 
-.editbtn span:after {
-  content: "\270E";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-  background-color: black;
-}
-
-.editbtn:hover span {
-  padding-right: 25px;
-  background-color: black;
-}
-
-.editbtn:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-.deletebtn { width: auto;
+.deletebtn {
+  width: auto;
 }
 .deletebtn:hover {
   background-color: black;
   color: #ffffff;
 }
-.deletebtn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
 
-.deletebtn span:after {
-  content: "\2613";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-  background-color: black;
-}
-
-.deletebtn:hover span {
-  padding-right: 25px;
-  background-color: black;
-}
-
-.deletebtn:hover span:after {
-  opacity: 1;
-  right: 0;
-}
 #container {
   display: flex;
   flex-direction: column;
@@ -211,30 +138,28 @@ button:hover span:after {
   display: flex;
   flex-direction: row;
   flex: 1;
-  
 }
-.check-box{display: flex;
-align-items: baseline;
-
-
+.check-box {
+  display: flex;
+  align-items: baseline;
 }
 .added-content {
   justify-content: space-between;
-    align-items: center;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    flex-direction: row;
-    flex: 1;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 .completed-content {
   justify-content: space-between;
-    align-items: center;
-    margin: 5px;
-    padding: 5px;
-    display: flex;
-    flex-direction: row;
-    flex: 1;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 
 .test {
@@ -310,4 +235,54 @@ align-items: baseline;
   .nav-links.active {
     display: flex;
   }
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider.round {
+  border-radius: 34px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider.round:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  background-color: white;
+  bottom: 4px;
+  border-radius: 50%;
+}
+
+input:focus + .slider.round {
+  box-shadow: 0 0 1px white;
+}
+input:checked + .slider.round {
+  background-color: black;
+}
+input:checked + .slider.round:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
