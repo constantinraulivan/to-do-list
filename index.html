@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="add-task-popup" class="add-task-hidden">
+      <section id="add-task-form">
+
+        <div id="exit">
+          <button id="exit-btn">X</button>
+        </div>
+        <h2>ADD A NEW TASK TO YOUR LIST</h2>
+        <div id="add-section">
+            <input type="text" id="input-task" placeholder=""/>
+            <button id="addbtn" type="submit">
+              Add
+            </button>
+        </div>
+      </section>
+    </div>
     <header>
       <!-- Burger START -->
       <nav class="navbar">
@@ -22,6 +37,7 @@
             <li><a href="#">Background Color</a></li>
             <li><a href="#">Text Color</a></li>
             <li><a href="#">Switch to dark mod</a></li>
+            <li><a href="#" id="add-task-btn">Add Task</a></li>
           </ul>
         </div>
       </nav>
@@ -29,7 +45,7 @@
       <!-- Burger END -->
     </header>
     <section id="container">
-      <div class="section">
+      <!-- <div class="section">
         <h2>ADD TASK</h2>
          <div class="test"></div>
         <div id="add-section">
@@ -43,7 +59,7 @@
           
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="section">
         <h2>TODO</h2>
         <div class="test"></div>
