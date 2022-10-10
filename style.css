@@ -110,8 +110,7 @@ button:hover {
   width: auto;
   font-size: 10px;
 }
-.editbtn {
-}
+
 .editbtn:hover {
   background-color: black;
   color: #ffffff;
@@ -237,8 +236,9 @@ button:hover {
   }
 }
 
+/* The Input and .slider settings are inspired from the CSS Custom Checkbox | Day Night Mode Online Tutorials https://www.youtube.com/watch?v=_f036OpnuWo */
+
 input[type="checkbox"] {
-  -webkit-appearance: none;
   visibility: hidden;
   display: none;
 }
