@@ -265,7 +265,7 @@ input[type="checkbox"]:checked ~ .slider {
   position: absolute;
   top: 2px;
   left: 2px;
-  background-color: white;
+  background-color: green;
   width: 16px;
   height: 16px;
   border-radius: 50%;
@@ -281,7 +281,7 @@ input[type="checkbox"]:checked ~ .slider:before {
   position: absolute;
   top: 2px;
   right: 2px;
-  background-color: black;
+  background-color: red;
   width: 16px;
   height: 16px;
   border-radius: 50%;
