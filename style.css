@@ -52,7 +52,7 @@ h1 {
   text-decoration: none;
   color: white;
   padding: 10px;
-  display: block;
+  /* display: block; */
 }
 
 .hamburger {
@@ -225,14 +225,22 @@ button:hover {
     flex-direction: column;
     width: 100%;
     padding: 10px;
-    margin-left: 50px;
   }
 
   .nav-links ul li {
     text-align: center;
+    margin-bottom: 15px;
   }
+
+  .nav-links ul li a:hover {
+    background: linear-gradient(to bottom, transparent 50%, #03cc65);
+  }
+
   .nav-links.active {
     display: flex;
+  }
+  .nav-links ul li:hover {
+    background-color: #333;
   }
 }
 
