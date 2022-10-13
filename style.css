@@ -7,7 +7,6 @@
   font-family: "Lato", sans-serif;
   font-family: "Roboto", sans-serif;
   font-family: "Sora", sans-serif;
-  /* width: 100%; */
 }
 
 html {
@@ -23,7 +22,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: rgb(131 131 131);
   color: white;
 }
 
@@ -46,6 +45,7 @@ h1 {
 
 .nav-links ul li:hover {
   background-color: #555;
+  border-radius: 10px;
 }
 
 .nav-links ul li a {
@@ -83,6 +83,27 @@ h1 {
 .hamburger.active .bar:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
   background-color: rgb(255, 255, 255);
+}
+
+.section-todo {
+  margin: 20px 10px 30px 5px;
+  border-color: #727272;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 0px 24px 7px rgba(158, 158, 158, 0.8);
+  -webkit-box-shadow: 0px 0px 24px 7px rgba(158, 158, 158, 0.8);
+  -moz-box-shadow: 0px 0px 24px 7px rgba(158, 158, 158, 0.8);
+}
+
+.section-completed {
+  margin: 10px 10px 30px 5px;
+
+  border-color: #727272;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0px 0px 24px 7px rgba(158, 158, 158, 0.8);
+  -webkit-box-shadow: 0px 0px 24px 7px rgba(158, 158, 158, 0.8);
+  -moz-box-shadow: 0px 0px 24px 7px rgba(158, 158, 158, 0.8);
 }
 
 button {
@@ -127,6 +148,7 @@ button:hover {
 #container {
   display: flex;
   flex-direction: column;
+  margin: 10px;
 }
 
 #add-section {
@@ -150,6 +172,7 @@ button:hover {
   display: flex;
   flex-direction: row;
   flex: 1;
+  border-bottom: solid 1px rgb(247, 247, 247);
 }
 .completed-content {
   justify-content: space-between;
@@ -162,8 +185,10 @@ button:hover {
 }
 
 .test {
-  background-color: black;
+  background-color: rgb(131 131 131);
   height: 5px;
+  border-radius: 10px;
+  margin: 30px 0 30px 0;
 }
 
 .back {
@@ -199,49 +224,6 @@ button:hover {
   bottom: 40px;
   visibility: visible;
   opacity: 100%;
-}
-
-@media (max-width: 700px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    display: none;
-    width: 100%;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
-  }
-
-  .nav-links ul li {
-    text-align: center;
-    margin-bottom: 15px;
-  }
-
-  .nav-links ul li a:hover {
-    background: linear-gradient(to bottom, transparent 50%, #03cc65);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-  .nav-links ul li:hover {
-    background-color: #333;
-  }
 }
 
 /* The Input and .slider settings are inspired from the CSS Custom Checkbox | Day Night Mode Online Tutorials https://www.youtube.com/watch?v=_f036OpnuWo */
@@ -344,4 +326,47 @@ input[type="checkbox"]:checked ~ .slider:after {
 #exit button {
   border: none;
   background-color: rgb(238, 238, 238);
+}
+
+@media (max-width: 700px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .nav-links ul li {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .nav-links ul li a:hover {
+    background: linear-gradient(to bottom, transparent 50%, #03cc65);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-links ul li:hover {
+    background-color: #333;
+  }
 }
