@@ -3,12 +3,33 @@ const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const backBtn = document.querySelector(".back");
 
+function $(selector) {
+  return document.querySelector(selector);
+}
+
+function getTasksHTML(task) {
+  return `  <div class="added-content">
+  <label class="toggle"><input type="checkbox" checked><span class="slider"></span></label>
+  <div class="task">${task.name}</div>
+  <div class="edit">
+    <button class="editbtn" type="">Edit</button>
+    <button class="deletebtn" type="">Delete</button>
+  </div>
+</div>`;
+}
+
+function displayTasks(tasks) {
+  const tasksHTML = tasks.map(getTasksHTML);
+  //afisare
+  $(".section-todo").innerHTML += tasksHTML.join("");
+}
+
 function loadTasks() {
   fetch("http://localhost:3000/tasks-json")
     .then((r) => r.json())
     .then((tasks) => {
       allTasks = tasks;
-      console.log("tasks", allTasks);
+      displayTasks(allTasks);
     });
 }
 
@@ -55,4 +76,5 @@ function initEvents() {
 }
 
 loadTasks();
+// displayTasks();
 initEvents();
