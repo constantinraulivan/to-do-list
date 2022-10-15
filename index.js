@@ -36,6 +36,16 @@ function loadTasks() {
     });
 }
 
+function updateTaskRequest(task) {
+  return fetch("http://localhost:3000/tasks-json/update", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(task),
+  }).then((r) => r.json());
+}
+
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navLinks.classList.toggle("active");
@@ -78,9 +88,13 @@ function submitForm(e) {
   if (taskId) {
     task.id = taskId;
     task.completed = taskCompleted;
-    console.warn("task", task);
-    $("#input-form").reset();
-    taskId = undefined;
+    updateTaskRequest(task).then((status) => {
+      if (status.success) {
+        $("#input-form").reset();
+        taskId = undefined;
+        taskCompleted = undefined;
+      }
+    });
   }
 }
 
@@ -111,6 +125,9 @@ function initEvents() {
   const exit = document.getElementById("exit-btn");
   exit.addEventListener("click", function () {
     document.getElementById("task-popup").classList.remove("task-popup-show");
+    taskId = undefined;
+    taskCompleted = undefined;
+    $("#input-form").reset();
   });
 
   const form = $("#input-form");
