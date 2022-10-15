@@ -62,16 +62,23 @@ function backToTop() {
 function initEvents() {
   const addTaskBtn = document.getElementById("add-task-btn");
   addTaskBtn.addEventListener("click", function () {
-    document
-      .getElementById("add-task-popup")
-      .classList.remove("add-task-hidden");
-    document.getElementById("add-task-popup").classList.add("add-task");
+    const taskPopupText = $("#task-popup h2");
+    taskPopupText.innerHTML = "ADD A NEW TASK TO YOUR LIST";
+    document.getElementById("task-popup").classList.add("task-popup-show");
+  });
+
+  const container = document.querySelector("#container");
+  container.addEventListener("click", function (e) {
+    if (e.target.matches(".editbtn")) {
+      const taskPopupText = $("#task-popup h2");
+      taskPopupText.innerHTML = "EDIT TASK";
+      document.getElementById("task-popup").classList.add("task-popup-show");
+    }
   });
 
   const exit = document.getElementById("exit-btn");
   exit.addEventListener("click", function () {
-    document.getElementById("add-task-popup").classList.add("add-task-hidden");
-    document.getElementById("add-task-popup").classList.remove("add-task");
+    document.getElementById("task-popup").classList.remove("task-popup-show");
   });
 }
 

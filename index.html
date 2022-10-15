@@ -8,17 +8,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="add-task-popup" class="add-task-hidden">
-      <section id="add-task-form">
-
+    <div id="task-popup" class="task-popup-hidden">
+      <section id="task-form">
         <div id="exit">
           <button id="exit-btn">X</button>
         </div>
+
         <h2>ADD A NEW TASK TO YOUR LIST</h2>
+
         <div id="add-section">
             <input type="text" id="input-task" placeholder=""/>
-            <button id="addbtn" type="submit">
-              Add
+            <button id="save-btn" type="submit">
+              Save
             </button>
         </div>
       </section>
@@ -45,21 +46,6 @@
       <!-- Burger END -->
     </header>
     <section id="container">
-      <!-- <div class="section">
-        <h2>ADD TASK</h2>
-         <div class="test"></div>
-        <div id="add-section">
-          <div id="add-input">
-            <input type="text" />
-          </div>
-          <div>
-            <button id="addbtn" type="submit">
-              Add
-            </button>
-          
-          </div>
-        </div>
-      </div> -->
       <div class="section-todo">
         <h2>TODO</h2>
       </div>
@@ -78,8 +64,8 @@
           <label class="toggle"><input type="checkbox"><span class="slider"></span></label>
           <div class="task"><strike>Wash your car</strike></div>
           <div class="edit">
-            <button class="editbtn">Edit</button>
-            <button class="deletebtn">Delete</button>
+            <button class="editbtn" type="">Edit</button>
+            <button class="deletebtn" type="">Delete</button>
           </div>
         </div>
       </div>
