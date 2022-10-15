@@ -90,9 +90,7 @@ function submitForm(e) {
     task.completed = taskCompleted;
     updateTaskRequest(task).then((status) => {
       if (status.success) {
-        $("#input-form").reset();
-        taskId = undefined;
-        taskCompleted = undefined;
+        closeTaskPopup();
       }
     });
   }
@@ -103,6 +101,13 @@ function startEditTask(id) {
   taskCompleted = task.completed;
   taskId = id;
   $("input[id=input-task]").value = task.name;
+}
+
+function closeTaskPopup() {
+  document.getElementById("task-popup").classList.remove("task-popup-show");
+  taskId = undefined;
+  taskCompleted = undefined;
+  $("#input-form").reset();
 }
 
 function initEvents() {
@@ -123,12 +128,7 @@ function initEvents() {
   });
 
   const exit = document.getElementById("exit-btn");
-  exit.addEventListener("click", function () {
-    document.getElementById("task-popup").classList.remove("task-popup-show");
-    taskId = undefined;
-    taskCompleted = undefined;
-    $("#input-form").reset();
-  });
+  exit.addEventListener("click", closeTaskPopup);
 
   const form = $("#input-form");
   form.addEventListener("submit", submitForm);
