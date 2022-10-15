@@ -313,6 +313,12 @@ input[type="checkbox"]:checked ~ .slider:after {
   border-bottom: solid 2px black;
   width: 100%;
   outline: none;
+  flex: 1;
+}
+
+#input-form {
+  display: flex;
+  width: 100%;
 }
 
 #exit {
