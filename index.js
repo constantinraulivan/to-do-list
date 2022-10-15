@@ -2,6 +2,7 @@ let allTasks = [];
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const backBtn = document.querySelector(".back");
+let taskFormTitle;
 
 function $(selector) {
   return document.querySelector(selector);
@@ -59,20 +60,24 @@ function backToTop() {
   });
 }
 
+function addOrEditTaskPopup() {
+  const taskPopupText = $("#task-popup h2");
+  taskPopupText.innerHTML = taskFormTitle;
+  document.getElementById("task-popup").classList.add("task-popup-show");
+}
+
 function initEvents() {
   const addTaskBtn = document.getElementById("add-task-btn");
   addTaskBtn.addEventListener("click", function () {
-    const taskPopupText = $("#task-popup h2");
-    taskPopupText.innerHTML = "ADD A NEW TASK TO YOUR LIST";
-    document.getElementById("task-popup").classList.add("task-popup-show");
+    taskFormTitle = "ADD A NEW TASK TO YOUR LIST";
+    addOrEditTaskPopup();
   });
 
   const container = document.querySelector("#container");
   container.addEventListener("click", function (e) {
     if (e.target.matches(".editbtn")) {
-      const taskPopupText = $("#task-popup h2");
-      taskPopupText.innerHTML = "EDIT TASK";
-      document.getElementById("task-popup").classList.add("task-popup-show");
+      taskFormTitle = "EDIT TASK";
+      addOrEditTaskPopup();
     }
   });
 
@@ -83,5 +88,4 @@ function initEvents() {
 }
 
 loadTasks();
-// displayTasks();
 initEvents();
