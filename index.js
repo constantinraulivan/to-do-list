@@ -120,7 +120,7 @@ function initEvents() {
   const container = document.querySelector("#container");
   container.addEventListener("click", function (e) {
     if (e.target.matches(".editbtn")) {
-      taskFormTitle = "EDIT TASK";
+      taskFormTitle = "YOU CAN EDIT YOUR TASK";
       addOrEditTaskPopup();
       const id = e.target.getAttribute("data-id");
       startEditTask(id);

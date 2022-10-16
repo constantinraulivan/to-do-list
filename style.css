@@ -317,7 +317,9 @@ input[type="checkbox"]:checked ~ .slider:after {
 }
 
 #input-form {
+  padding-top: 1rem;
   display: flex;
+  flex-direction: row;
   width: 100%;
 }
 
