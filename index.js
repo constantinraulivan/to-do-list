@@ -12,7 +12,9 @@ function $(selector) {
 
 function getTasksHTML(task) {
   return `  <div class="added-content">
-  <label class="toggle"><input type="checkbox" checked><span class="slider"></span></label>
+  <label class="toggle"><input type="checkbox" ${
+    task.completed ? "checked" : ""
+  }><span class="slider"></span></label>
   <div class="task">${task.name}</div>
   <div class="edit">
     <button class="editbtn" data-id="${task.id}" type="">Edit</button>
@@ -23,6 +25,7 @@ function getTasksHTML(task) {
 
 function displayTasks(tasks) {
   const tasksHTML = tasks.map(getTasksHTML);
+
   //afisare
   $(".section-todo").innerHTML += tasksHTML.join("");
 }
