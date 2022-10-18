@@ -130,6 +130,16 @@ function initEvents() {
     }
   });
 
+  const checkbox = document.querySelector("input[name=checkbox]");
+
+  checkbox.addEventListener("change", function () {
+    if (this.checked) {
+      console.log("Checkbox is checked..");
+    } else {
+      console.log("Checkbox is not checked..");
+    }
+  });
+
   const exit = document.getElementById("exit-btn");
   exit.addEventListener("click", closeTaskPopup);
 
