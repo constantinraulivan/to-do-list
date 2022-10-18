@@ -49,6 +49,21 @@ function updateTaskRequest(task) {
   }).then((r) => r.json());
 }
 
+function deleteTask(id){
+  return fetch("http://localhost:3000/tasks-json/delete", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ id: id })
+  }).then(r => r.json())
+    .then(r=> {
+      if(r.success){
+        loadTasks();
+      }
+    })
+}
+
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navLinks.classList.toggle("active");
