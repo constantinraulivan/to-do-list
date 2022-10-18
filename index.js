@@ -12,7 +12,7 @@ function $(selector) {
 
 function getTasksHTML(task) {
   return `  <div class="added-content">
-  <label class="toggle"><input type="checkbox" ${
+  <label class="toggle"><input type="checkbox" name="checkbox" ${
     task.completed ? "checked" : ""
   }><span class="slider"></span></label>
   <div class="task ${task.completed ? "" : "todo"}">${task.name}</div>
@@ -78,13 +78,13 @@ function backToTop() {
 function addOrEditTaskPopup() {
   const taskPopupText = $("#task-popup h2");
   taskPopupText.innerHTML = taskFormTitle;
-  document.getElementById("task-popup").classList.add("task-popup-show");
+  $("#task-popup").classList.add("task-popup-show");
 }
 
 function submitForm(e) {
   e.preventDefault();
 
-  const name = $("input[id=input-task]").value;
+  const name = $("#input-task").value;
   let task = {
     name,
   };
@@ -107,14 +107,14 @@ function startEditTask(id) {
 }
 
 function closeTaskPopup() {
-  document.getElementById("task-popup").classList.remove("task-popup-show");
+  $("#task-popup").classList.remove("task-popup-show");
   taskId = undefined;
   taskCompleted = undefined;
   $("#input-form").reset();
 }
 
 function initEvents() {
-  const addTaskBtn = document.getElementById("add-task-btn");
+  const addTaskBtn = $("#add-task-btn");
   addTaskBtn.addEventListener("click", function () {
     taskFormTitle = "ADD A NEW TASK TO YOUR LIST";
     addOrEditTaskPopup();
@@ -130,6 +130,12 @@ function initEvents() {
     }
   });
 
+  const exit = $("#exit-btn");
+  exit.addEventListener("click", closeTaskPopup);
+
+  const form = $("#input-form");
+  form.addEventListener("submit", submitForm);
+
   const checkbox = document.querySelector("input[name=checkbox]");
 
   checkbox.addEventListener("change", function () {
@@ -139,12 +145,6 @@ function initEvents() {
       console.log("Checkbox is not checked..");
     }
   });
-
-  const exit = document.getElementById("exit-btn");
-  exit.addEventListener("click", closeTaskPopup);
-
-  const form = $("#input-form");
-  form.addEventListener("submit", submitForm);
 }
 
 loadTasks();
