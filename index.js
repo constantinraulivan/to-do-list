@@ -13,9 +13,9 @@ function $(selector) {
 function getTasksHTML(task) {
   return `  <div class="added-content">
   <label class="toggle"><input type="checkbox" name="checkbox" ${
-    task.completed ? "checked" : ""
+    task.completed ? "" : "checked"
   }><span class="slider"></span></label>
-  <div class="task ${task.completed ? "" : "todo"}">${task.name}</div>
+  <div class="task ${task.completed ? "todo" : ""}">${task.name}</div>
   <div class="edit">
     <button class="editbtn" data-id="${task.id}" type="">Edit</button>
     <button class="deletebtn" data-id="${task.id}" type="">Delete</button>
