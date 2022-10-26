@@ -39,6 +39,16 @@ function loadTasks() {
     });
 }
 
+function createTaskRequest(task) {
+  return fetch("http://localhost:3000/tasks-json/create", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(task),
+  }).then((r) => r.json());
+}
+
 function updateTaskRequest(task) {
   return fetch("http://localhost:3000/tasks-json/update", {
     method: "PUT",
@@ -49,19 +59,20 @@ function updateTaskRequest(task) {
   }).then((r) => r.json());
 }
 
-function deleteTask(id){
+function deleteTask(id) {
   return fetch("http://localhost:3000/tasks-json/delete", {
     method: "DELETE",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id: id })
-  }).then(r => r.json())
-    .then(r=> {
-      if(r.success){
+    body: JSON.stringify({ id: id }),
+  })
+    .then((r) => r.json())
+    .then((r) => {
+      if (r.success) {
         loadTasks();
       }
-    })
+    });
 }
 
 hamburger.addEventListener("click", () => {
@@ -97,6 +108,7 @@ function addOrEditTaskPopup() {
 }
 
 function submitForm(e) {
+  console.log("SUBMIT FORM");
   e.preventDefault();
 
   const name = $("#input-task").value;
@@ -109,6 +121,14 @@ function submitForm(e) {
     updateTaskRequest(task).then((status) => {
       if (status.success) {
         closeTaskPopup();
+      }
+    });
+  } else {
+    task.completed = false;
+    createTaskRequest(task).then((status) => {
+      if (status.success) {
+        closeTaskPopup();
+        // loadTasks();
       }
     });
   }
