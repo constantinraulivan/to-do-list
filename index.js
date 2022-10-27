@@ -12,10 +12,12 @@ function $(selector) {
 
 function getTasksHTML(task) {
   return `  <div class="added-content">
-  <label class="toggle"><input type="checkbox" name="checkbox" ${
-    task.completed ? "" : "checked"
-  }><span class="slider"></span></label>
-  <div class="task ${task.completed ? "todo" : ""}">${task.name}</div>
+  <label class="toggle"><input type="checkbox" name="checkbox" data-id="${
+    task.id
+  }" ${task.completed ? "" : "checked"}><span class="slider"></span></label>
+  <div class="task ${task.completed ? "todo" : ""}" data-id="${task.id}">${
+    task.name
+  }</div>
   <div class="edit">
     <button class="editbtn" data-id="${task.id}" type="">Edit</button>
     <button class="deletebtn" data-id="${task.id}" type="">Delete</button>
@@ -148,6 +150,10 @@ function closeTaskPopup() {
   $("#input-form").reset();
 }
 
+function markdDone(id) {
+  $(`div[data-id=${id}]`).classList.toggle("todo");
+}
+
 function initEvents() {
   const addTaskBtn = $("#add-task-btn");
   addTaskBtn.addEventListener("click", function () {
@@ -162,6 +168,9 @@ function initEvents() {
       addOrEditTaskPopup();
       const id = e.target.getAttribute("data-id");
       startEditTask(id);
+    } else if (e.target.matches("input[name=checkbox]")) {
+      const id = e.target.getAttribute("data-id");
+      markdDone(id);
     }
   });
 
@@ -170,16 +179,6 @@ function initEvents() {
 
   const form = $("#input-form");
   form.addEventListener("submit", submitForm);
-
-  const checkbox = document.querySelector("input[name=checkbox]");
-
-  checkbox.addEventListener("change", function () {
-    if (this.checked) {
-      console.log("Checkbox is checked..");
-    } else {
-      console.log("Checkbox is not checked..");
-    }
-  });
 }
 
 loadTasks();
