@@ -29,7 +29,7 @@ function displayTasks(tasks) {
   const tasksHTML = tasks.map(getTasksHTML);
 
   //afisare
-  $(".section-todo").innerHTML += tasksHTML.join("");
+  $("#tasks-section").innerHTML = tasksHTML.join("");
 }
 
 function loadTasks() {
@@ -123,6 +123,7 @@ function submitForm(e) {
     updateTaskRequest(task).then((status) => {
       if (status.success) {
         closeTaskPopup();
+        console.log("test");
       }
     });
   } else {
