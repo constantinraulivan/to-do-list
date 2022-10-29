@@ -104,9 +104,10 @@ function backToTop() {
 }
 
 function addOrEditTaskPopup() {
-  const taskPopupText = $("#task-popup h2");
+  $("body").classList.toggle("blurred");
+  const taskPopupText = $("#task-form h2");
   taskPopupText.innerHTML = taskFormTitle;
-  $("#task-popup").classList.add("task-popup-show");
+  $("#task-form").classList.add("task-form-show");
 }
 
 function submitForm(e) {
@@ -145,7 +146,8 @@ function startEditTask(id) {
 }
 
 function closeTaskPopup() {
-  $("#task-popup").classList.remove("task-popup-show");
+  $("#task-form").classList.remove("task-form-show");
+  $("body").classList.toggle("blurred");
   taskId = undefined;
   taskCompleted = undefined;
   $("#input-form").reset();

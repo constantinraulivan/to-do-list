@@ -8,22 +8,21 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="task-popup" class="task-popup-hidden">
-      <section id="task-form">
-        <div id="exit">
-          <button id="exit-btn">X</button>
-        </div>
+    <section id="task-form" class="task-form-hidden">
+      <div id="exit">
+        <button id="exit-btn">X</button>
+      </div>
 
-        <h2 id="task-popup-title"></h2>
+      <h2 id="task-popup-title"></h2>
 
-        <form action="" method="post" id="input-form">
-          <input type="text" id="input-task" placeholder=""/>
-          <button id="save-btn" type="submit">
-            Save
-          </button>
-        </form>
-      </section>
-    </div>
+      <form action="" method="post" id="input-form">
+        <input type="text" id="input-task" required placeholder=""/>
+        <button id="save-btn" type="submit">
+          Save
+        </button>
+      </form>
+    </section>
+
     <header>
       <!-- Burger START -->
       <nav class="navbar">
