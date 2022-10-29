@@ -124,7 +124,7 @@ function submitForm(e) {
     updateTaskRequest(task).then((status) => {
       if (status.success) {
         closeTaskPopup();
-        console.log("test");
+        loadTasks();
       }
     });
   } else {
