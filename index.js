@@ -1,3 +1,22 @@
+const API = {
+  CREATE: {
+    URL: "http://localhost:3000/tasks/create",
+    METHOD: "POST",
+  },
+  READ: {
+    URL: "http://localhost:3000/tasks",
+    METHOD: "GET",
+  },
+  UPDATE: {
+    URL: "http://localhost:3000/tasks/update",
+    METHOD: "PUT",
+  },
+  DELETE: {
+    URL: "http://localhost:3000/tasks/delete",
+    METHOD: "DELETE",
+  },
+};
+
 let allTasks = [];
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
@@ -5,6 +24,20 @@ const backBtn = document.querySelector(".back");
 let taskFormTitle;
 let taskId;
 let taskCompleted;
+
+//for demo
+const isDemo = false || location.host === "constantinraulivan.github.io";
+const inlineChanges = isDemo;
+if (isDemo) {
+  API.READ.URL = "data/tasks.json";
+  API.DELETE.URL = "data/delete.json";
+  API.CREATE.URL = "data/create.json";
+  API.UPDATE.URL = "data/update.json";
+
+  API.DELETE.METHOD = "GET";
+  API.CREATE.METHOD = "GET";
+  API.UPDATE.METHOD = "GET";
+}
 
 function $(selector) {
   return document.querySelector(selector);
@@ -33,7 +66,7 @@ function displayTasks(tasks) {
 }
 
 function loadTasks() {
-  fetch("http://localhost:3000/tasks-json")
+  fetch(API.READ.URL)
     .then((r) => r.json())
     .then((tasks) => {
       allTasks = tasks;
@@ -42,7 +75,7 @@ function loadTasks() {
 }
 
 function createTaskRequest(task) {
-  return fetch("http://localhost:3000/tasks-json/create", {
+  return fetch(API.CREATE.URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -52,17 +85,18 @@ function createTaskRequest(task) {
 }
 
 function updateTaskRequest(task) {
-  return fetch("http://localhost:3000/tasks-json/update", {
-    method: "PUT",
+  const method = API.UPDATE.METHOD;
+  return fetch(API.UPDATE.URL, {
+    method,
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(task),
+    body: method === "GET" ? null : JSON.stringify(task),
   }).then((r) => r.json());
 }
 
 function deleteTask(id) {
-  return fetch("http://localhost:3000/tasks-json/delete", {
+  return fetch(API.DELETE.URL, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -123,8 +157,15 @@ function submitForm(e) {
     task.completed = taskCompleted;
     updateTaskRequest(task).then((status) => {
       if (status.success) {
+        if (inlineChanges) {
+          allTasks = allTasks.map((t) => {
+            return t.id === taskId ? task : t;
+          });
+          displayTasks(allTasks);
+        } else {
+          loadTasks();
+        }
         closeTaskPopup();
-        loadTasks();
       }
     });
   } else {
