@@ -26,7 +26,7 @@ let taskId;
 let taskCompleted;
 
 //for demo
-const isDemo = false || location.host === "constantinraulivan.github.io";
+const isDemo = location.host === "constantinraulivan.github.io";
 const inlineChanges = isDemo;
 if (isDemo) {
   API.READ.URL = "data/tasks.json";
@@ -75,12 +75,13 @@ function loadTasks() {
 }
 
 function createTaskRequest(task) {
+  const method = API.CREATE.METHOD;
   return fetch(API.CREATE.URL, {
-    method: "POST",
+    method,
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(task),
+    body: method === "GET" ? null : JSON.stringify(task),
   }).then((r) => r.json());
 }
 
@@ -172,8 +173,13 @@ function submitForm(e) {
     task.completed = false;
     createTaskRequest(task).then((status) => {
       if (status.success) {
+        if (inlineChanges) {
+          allTasks = [...allTasks, { ...task, id: status.id }];
+          displayTasks(allTasks);
+        } else {
+          loadTasks();
+        }
         closeTaskPopup();
-        // loadTasks();
       }
     });
   }
