@@ -1,6 +1,6 @@
 const API = {
   CREATE: {
-    URL: "http://localhost:3000/tasks/create",
+    URL: "http://localhost:3000/tasks-json/create",
     METHOD: "POST",
   },
   READ: {
@@ -8,11 +8,11 @@ const API = {
     METHOD: "GET",
   },
   UPDATE: {
-    URL: "http://localhost:3000/tasks/update",
+    URL: "http://localhost:3000/tasks-json/update",
     METHOD: "PUT",
   },
   DELETE: {
-    URL: "http://localhost:3000/tasks/delete",
+    URL: "http://localhost:3000/tasks-json/delete",
     METHOD: "DELETE",
   },
 };
