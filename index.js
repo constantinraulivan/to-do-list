@@ -4,7 +4,7 @@ const API = {
     METHOD: "POST",
   },
   READ: {
-    URL: "http://localhost:3000/tasks",
+    URL: "http://localhost:3000/tasks-json",
     METHOD: "GET",
   },
   UPDATE: {
