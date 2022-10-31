@@ -99,17 +99,23 @@ function updateTaskRequest(task) {
 }
 
 function deleteTask(id) {
+  const method = API.DELETE.METHOD;
   return fetch(API.DELETE.URL, {
-    method: "DELETE",
+    method,
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id: id }),
+    body: method === "GET" ? null : JSON.stringify(task),
   })
     .then((r) => r.json())
     .then((r) => {
       if (r.success) {
-        loadTasks();
+        if (inlineChanges) {
+          allTasks = allTasks.filter((task) => task.id !== id);
+          displayTasks(allTasks);
+        } else {
+          loadTasks();
+        }
       }
     });
 }
@@ -202,21 +208,6 @@ function closeTaskPopup() {
   $("#input-form").reset();
 }
 
-function updateCompleted(id) {
-  const task = allTasks.find((task) => id === task.id);
-
-  if (task.completed === true) {
-    task.completed = false;
-  } else {
-    task.completed = true;
-  }
-  updateTaskRequest(task).then((status) => {
-    if (status.success) {
-      console.warn("did it work?");
-    }
-  });
-}
-
 function markdDone(id) {
   $(`div[data-id=${id}]`).classList.toggle("todo");
 }
@@ -238,8 +229,6 @@ function initEvents() {
     } else if (e.target.matches("input[name=checkbox]")) {
       const id = e.target.getAttribute("data-id");
       markdDone(id);
-
-      updateCompleted(id);
     }
   });
 
