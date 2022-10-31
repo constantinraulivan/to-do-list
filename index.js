@@ -208,6 +208,21 @@ function closeTaskPopup() {
   $("#input-form").reset();
 }
 
+function updateCompleted(id) {
+  const task = allTasks.find((task) => id === task.id);
+
+  if (task.completed === true) {
+    task.completed = false;
+  } else {
+    task.completed = true;
+  }
+  updateTaskRequest(task).then((status) => {
+    if (status.success) {
+      console.warn("did it work?");
+    }
+  });
+}
+
 function markdDone(id) {
   $(`div[data-id="${id}"]`).classList.toggle("todo");
 }
@@ -229,6 +244,7 @@ function initEvents() {
     } else if (e.target.matches("input[name=checkbox]")) {
       const id = e.target.getAttribute("data-id");
       markdDone(id);
+      updateCompleted(id);
     }
   });
 
