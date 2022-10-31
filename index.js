@@ -105,7 +105,7 @@ function deleteTask(id) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: method === "GET" ? null : JSON.stringify(task),
+    body: method === "GET" ? null : JSON.stringify({ id: id }),
   })
     .then((r) => r.json())
     .then((r) => {
@@ -209,7 +209,7 @@ function closeTaskPopup() {
 }
 
 function markdDone(id) {
-  $(`div[data-id=${id}]`).classList.toggle("todo");
+  $(`div[data-id="${id}"]`).classList.toggle("todo");
 }
 
 function initEvents() {
