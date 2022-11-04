@@ -117,7 +117,7 @@ button {
   text-align: center;
   transition: all 0.5s;
   cursor: pointer;
-  border: 2px solid black;
+  border: px solid black;
 }
 button:hover {
   background-color: black;

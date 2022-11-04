@@ -52,10 +52,14 @@ function getTasksHTML(task) {
     task.name
   }</div>
   <div class="edit">
-    <button class="editbtn" data-id="${task.id}" type="">Edit</button>
+    <button class="editbtn" data-id="${
+      task.id
+    }" type=""><i class="fa-sharp fa-solid fa-pen-to-square"></i></button>
     <button class="deletebtn" data-id="${
       task.id
-    }" type="" onClick="deleteTask('${task.id}')">Delete</button>
+    }" type="" onClick="deleteTask('${
+    task.id
+  }')"><i class="fa-sharp fa-solid fa-trash"></i></button>
   </div>
 </div>`;
 }
