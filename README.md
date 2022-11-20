@@ -4,6 +4,8 @@ An app that allows you to create a To Do List with your daily tasks and mark the
 
 This app was made using HTML, CSS and JavaScript. 
 
+![app](https://user-images.githubusercontent.com/108687528/202923866-ae19e27d-1ce7-4035-9bf6-802d9696de12.jpeg)
+
 ## Team
 
 - [Ivan Constantin Raul](https://github.com/constantinraulivan)
