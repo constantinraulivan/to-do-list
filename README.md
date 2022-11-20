@@ -17,12 +17,12 @@ This app was made using HTML, CSS and JavaScript.
 [To Do List](https://constantinraulivan.github.io/to-do-list/)
 
 ## Connect with API
-Current app can connect with external [to-do-list-api](https://github.com/constantinraulivan/to-do-list-api) to store its data.
+Current app can connect with external [to-do-list-api](https://github.com/constantinraulivan/to-do-list-api) to store its data.  
 Clone & start to-do-list-api.
 
 ## TODO:
-[ ] progress bar
-[ ] choose between several background colors
-[ ] choose between several text colors
-[ ] dark mode
-[ ] logo design
+- [ ] progress bar  
+- [ ] choose between several background colors  
+- [ ] choose between several text colors  
+- [ ] dark mode  
+- [ ] logo design
